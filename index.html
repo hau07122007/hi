@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tỏ tình với trái tim</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #e91e63;
+      --background-gradient: linear-gradient(135deg, #ffe6e6 0%, #ffb3d9 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+      background: var(--background-gradient);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: var(--primary-color);
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      animation: fadeIn 2s ease, float 3s ease-in-out infinite;
+    }
+
+    #question {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    #buttons {
+      margin-top: 10px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .yes {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .no {
+      background-color: #f44336;
+      color: white;
+    }
+
+    .button:hover {
+      transform: scale(1.1);
+    }
+
+    #heart {
+      font-size: 5rem;
+      display: none;
+      animation: heartBeat 1.5s infinite;
+    }
+
+    #thankYouMessage {
+      font-size: 1.5rem;
+      color: #333;
+      font-weight: bold;
+      margin-top: 20px;
+      display: none;
+    }
+
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes moveButton {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(30px); }
+      40% { transform: translateX(-30px); }
+      60% { transform: translateX(30px); }
+      80% { transform: translateX(-30px); }
+      100% { transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Mỹ Duyên Ơi 🎀</h1>
+
+  <div id="question">
+    Em có muốn làm người anh yêu không?
+  </div>
+
+  <div id="buttons">
+    <button class="button yes" onclick="showHeart()">Đồng ý</button>
+    <button class="button no" onclick="moveButton()">Không đồng ý</button>
+  </div>
+
+  <div id="heart">🥰</div>
+
+  <div id="thankYouMessage"></div>
+
+  <script>
+    function showHeart() {
+      const heart = document.getElementById('heart');
+      const question = document.getElementById('question');
+      const buttons = document.getElementById('buttons');
+      const thankYouMessage = document.getElementById('thankYouMessage');
+
+      question.style.display = 'none';
+      buttons.style.display = 'none';
+      heart.style.display = 'block';
+
+      setTimeout(() => {
+        thankYouMessage.textContent = 'Cảm ơn vì đã làm người anh yêu! ❤️';
+        thankYouMessage.style.display = 'block';
+      }, 5000);
+    }
+
+    function moveButton() {
+      const noButton = document.querySelector('.no');
+      const question = document.getElementById('question');
+      const buttons = document.getElementById('buttons');
+      const thankYouMessage = document.getElementById('thankYouMessage');
+
+      question.style.display = 'none';
+      buttons.style.display = 'none';
+      thankYouMessage.textContent = 'Cảm ơn,🥺hy vọng một ngày nào đó bạn sẽ đồng ý! ❤️';
+      thankYouMessage.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
